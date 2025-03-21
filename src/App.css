@@ -1,37 +1,46 @@
-.view{
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-auto-rows: minmax(40vh, auto);
-  gap: 20px;
+body {
+  font-family: sans-serif;
+  background: #dedede;
+  padding: 48px;
 }
 
-.block{
-  background-color: slategray;
-  /* width:40vw;
-  height:40vh; */
+h1 {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
 }
 
-/* animating the divs */
-@keyframes appear{
-  from{
-    opacity:0;
-    /* scale:0; */
+.card {
+  background-color: slategrey;
+  padding: 1rem;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 500ms;
+  overflow: hidden;
 
-    /* transform: translateX(-100%); */
-
-    clip-path: inset(100% 100% 0 0);
-  }
-  to{
-    opacity:1;
-    /* scale:1; */
-    /* transform: translateX(0); */
-
-    clip-path: inset(0 0 0 0);
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.block{
-  animation: appear ease ;
-  animation-timeline: view();
-  animation-range: entry 0 cover 40%;
+.basic-grid {
+  display: grid;
+  gap: 1rem;
+  /* grid-template-columns: repeat(12, 1fr); */
+  grid-template-columns: repeat(12, minmax(240px, 1fr));
+  /****** implicit grid ******/
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.photo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-auto-rows: 240px;
+}
+
+.card-tall {
+  grid-row: span 2 / auto;
 }
